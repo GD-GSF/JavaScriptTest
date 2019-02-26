@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Untitled Document</title>
+		<link rel="stylesheet" type="text/css" href="css/css.css" />
+		<script type="text/javascript">
+			/*先绑定文件加载*/
+			window.onload = function(){
+//				获取ID为btn01的按钮
+				
+				var btn = document.getElementById("btn01");
+				//获取到了,现在btn是btn01的对象;
+				
+				//点击这个按钮就会执行以下
+				btn.onclick = function(){
+			//查找#bj节点
+					 //用此按钮去链接一个元素
+					 var Objbj = document.getElementById("bj");
+					//通过ID"bj"获取到了一个元素
+					
+                    //获取到了bj的对象.(object HTML LI Elemen)
+                    //                (对象      html的li 元素 )
+                    
+					 	alert(Objbj.innerHTML);
+					 	//北京对象的 内部 的HTML代码
+				}
+			
+				//查找所有li节点
+				//先获取一个按钮 ID为btn02;				
+				var btn02 = document.getElementById("btn02");				
+//				为此按钮绑定一个事件				
+				btn02.onclick = function(){
+//					获取一个li标签的对象
+					var Objli = document.getElementsByTagName("li");
+					
+					
+//					这个方法会给我们返回一个类数组对象,所有查询到的元素都会封装到此对象中
+//					也就是说此时这个对象封装了所有的li元素内容;
+//					遍历一次让他显示出来?试试
+					for(var i = 0; i<=Objli.length;i++){
+						
+//						遍历好了就会直接输出在for遍历里输出 外部不用再alert
+						//输出所有li标签内的html代码
+						
+						alert(Objli[i].innerHTML);
+//						警告框(对象[数组].的 内部 HTML代码)
+					}		
+
+//					
+					
+				}
+				
+//				查找name=gender的所有节点
+
+//				获取一个按钮
+				var btn03 = document.getElementById("btn03")
+//				给此按钮绑定一个事件
+				btn03.onclick = function(){
+					//创建一个gender节点对象
+					var objGen = document.getElementsByName("gender");
+					
+					for(var i=0;i<objGen.length;i++){
+					
+//					自结束标签没有html代码,所以不能使用innerHTML属性
+					//alert(objGen[i].innerHTML);
+					alert(objGen[i].value);
+					//类对象数组.[索引].属性名;
+//						这样才能正确的获得自结束的参数
+					}
+				}
+				
+				//获取一个按钮对象
+				var btn04 = document.getElementById("btn04")
+				
+//				给按钮绑定一个事件
+				btn04.onclick = function(){
+//					获取#city的节点对象
+					var objcity = document.getElementById("city");
+					
+//					获取city里的li节点
+					var citys = objcity.getElementsByTagName("li");
+					//  对象     = city节点对象.获取 元素 多个 name 节点;
+					//alert(citys);
+					//这是个collection类对象数组;
+					//所有遍历一波
+					for(var i=0;i<citys.length;i++){
+						alert(citys[i].innerHTML);
+					}
+		              			//稳
+					
+				}
+			
+			//返回#city下所有的子节点
+			
+			var btn05 = document.getElementById("btn05");
+			
+//			绑定事件
+				btn05.onclick = function(){
+//					先获取city的元素对象
+				var city = document.getElementById("city");
+//				在获取city对象里的所有子节点
+				var zcity = city.childNodes;
+				//!!!如果用了此属性,他会返回包括text也就说li之间的空格也算子节点
+				var acity = city.children;
+				//要用此属性(children)才会返回正确的子元素!!
+				
+				//alert(zcity);
+//				放回了类数组对象  NodeList  所有要遍历.
+
+//				如果要返回有用的元素 就用此遍历.
+//				for (var i=0;i<acity.length;i++) {
+//					alert(acity[i].innerHTML);
+//					
+//				}
+//				可是题目要求是返回所有子节点 所有还是要用这个遍历
+					for (var i=0;i<zcity.length;i++) {
+					alert(zcity[i].innerHTML);
+					}
+				}
+				
+			
+			
+			//返回#phone的第一个子节点
+			var btn06 = document.getElementById("btn06");
+			btn06.onclick = function(){
+				var phone = document.getElementById("phone");
+				
+				var fphone = phone.firstChild;
+//				phone.firstElementChild 第一个子元素
+//				phone.lastChild  最后一个子节点
+				alert(fphone.innerHTML);
+			};
+			
+			//返回#bj的父节点
+//			var btn07 = document.getElementById("btn07");
+//			btn07.onclick = function(){
+//				var objbj = document.getElementById("bj");
+//				var bj2 = objbj.parentNode;
+//				var bj3 = document.getElementById("bj").parentNode;
+//				alert(bj3);
+//			};
+			function myclick(ids,fun){
+//				ids绑定一个按钮
+				var btn = document.getElementById(ids);
+//				绑定点击按钮后会触发的函数
+				btn.onclick = fun;
+				
+			}
+			myclick("btn07",function(){
+				var bj2=document.getElementById("bj");
+				alert(bj2.parentNode.innerText);18038920201
+			})
+			
+			
+			var btn08 = document.getElementById("btn08");
+			btn08.onclick = function(){
+			var android1 = document.getElementById("android");
+				alert(android1.previousElementSibling.innerHTML);
+				
+			}
+			
+			myclick("btn08",function(){
+				var nex = document.getElementById("android");
+				alert(nex.nextElementSibling.innerHTML);
+			})
+			
+			
+			
+			myclick("btn09",function(){
+				var value = document.getElementById("username");
+				alert(value.value);
+			})
+			
+			
+			myclick("btn10",function(){
+				var value = document.getElementById("username");
+				alert(value.value="eeeee");
+			})
+			
+			}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="total">
+			<div class="inner">
+				<p>
+					你喜欢哪个城市?
+				</p>
+
+				<ul id="city">
+					<li id="bj">北京</li>
+					<li>上海</li>
+					<li>东京</li>
+					<li>首尔</li>
+				</ul>
+
+				<br>
+				<br>
+
+				<p>
+					你喜欢哪款单机游戏?
+				</p>
+
+				<ul id="game">
+					<li id="rl">红警</li>
+					<li>实况</li>
+					<li>极品飞车</li>
+					<li>魔兽</li>
+				</ul>
+
+				<br />
+				<br />
+
+				<p>
+					你手机的操作系统是?
+				</p>
+
+				<ul id="phone"><li>IOS</li> <li id="android">Android</li><li>Windows Phone</li></ul>
+			</div>
+
+			<div class="inner">
+				gender:
+				<input class="hello" type="radio" name="gender" value="male"/>
+				Male
+				<input class="hello" type="radio" name="gender" value="female"/>
+				Female
+				<br>
+				<br>
+				name:
+				<input type="text" name="name" id="username" value="abcde"/>
+			</div>
+		</div>
+		<div id="btnList">
+			<div><button id="btn01">查找#bj节点</button></div>
+			<div><button id="btn02">查找所有li节点</button></div>
+			<div><button id="btn03">查找name=gender的所有节点</button></div>
+			<div><button id="btn04">查找#city下所有li节点</button></div>
+			<div><button id="btn05">返回#city的所有子节点</button></div>
+			<div><button id="btn06">返回#phone的第一个子节点</button></div>
+			<div><button id="btn07">返回#bj的父节点</button></div>
+			<div><button id="btn08">返回#android的前一个兄弟节点</button></div>
+			<div><button id="btn09">返回#username的value属性值</button></div>
+			<div><button id="btn10">设置#username的value属性值</button></div>
+			<div><button id="btn11">返回#bj的文本值</button></div>
+		</div>
+	</body>
+</html>

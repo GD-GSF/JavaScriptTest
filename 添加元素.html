@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>.
+
+	</head>
+	<body>
+		
+		<div class="div">
+			<ul id="ul">
+				<li>广州</li>
+				<li>广州</li>
+			</ul>
+		</div>
+		<form action="">
+			<input id="inp" type="button" value="出来"/>
+			
+		</form>
+		<script type="text/javascript">
+			var btn = document.getElementById("inp");
+			btn.onclick = function(){
+				var ul = document.getElementById("ul")
+				var li = document.createElement("li");
+				var ul2 = document.createTextNode("北京")
+				li.appendChild(ul2);
+				ul.appendChild(li);
+//					var li = document.createElement("li");
+//					var gztext = document.createTextNode("广州");
+//					li.appendChild(gztext);
+//					var city = document.getElementById("city");
+//					city.appendChild(li);
+				
+			}
+			
+		</script>
+	</body>
+</html>
